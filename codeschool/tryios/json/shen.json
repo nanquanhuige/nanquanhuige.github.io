@@ -1,0 +1,12 @@
+
+
+{
+	firstName: "Linyong",
+	lastName: "Shen",
+	city: "Shaowu",
+	profilePhoto: "http://nanquanhuige.github.io/codeschool/tryios/images/shen.png",
+	profilePhotoThumbnail: "http://nanquanhuige.github.io/codeschool/tryios/images/shen-thumb.png",
+	biography: "Project manager of continuing education in FM",
+	memberSince: "March 2011"
+}
+
