@@ -16,144 +16,367 @@
 		<h1>个人技术笔记</h1>
 	</header>
 	<div id="content" class="container">
-		<h2>Android, Objective-C, js, ruby</h2>
+		<h2>Android, Objective-C</h2>
 		<!-- 表格开始 -->
 		<div class="table-responsive">
 		  <table class="table table-bordered">
 		    <thead>
 		    	<tr>
 			    	<td></td>
-			    	<td>Android</td>
-			    	<td>Objective-C</td>
-			    	<td>Javascript</td>
-			    	<td>Node.js</td>
-			    	<td>Ruby</td>
-			    	<td></td>
-			    	<td></td>
-			    	<td></td>
-			    	<td></td>
+			    	<td width="41%">Android</td>
+			    	<td width="41%">Objective-C</td>
 		    	</tr>
 		    </thead>
 		    <tbody>
 		    	<tr>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>主程序</td>
+		    		<td>项目初始化，自动生成 MainActivity.java</td>
+		    		<td>项目初始化，自动生成 xxxViewControl.h/.m</td>
+		    	</tr>
+		    	<tr>
+		    		<td>命名空间<br>类引用</td>
+		    		<td>
+		    			<pre><code>
+package com.shiyueyangfan.mycrystalball;
+import android.app.Activity;
+		    			</code></pre>
+		    			敲入代码出现多处提醒需要引用新的类时，<br>
+		    			Sourse > Organiza Import
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>Control 中的对象，<br>对View中UI元素的映射</td>
+		    		<td>
+		    			<pre>
+		    				<code>
+TextView answerLabel (TextView) findViewById(R.id.textView1)
+Button getAnswerButton = (Button) findViewById(R.id.button1)</code>
+
+		    			</pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>Control 中的对象，<br>对View中UI元素的事件监听</td>
+		    		<td>
+		    			<pre>
+		    				<code>
+getAnswerButton.setOnClickListener(new View.OnClickListener() {
+	public void onClick(View v) {
+		answerLabel.setText(mCrystalBall.getAnAnswer());
+	}
+});
+		    				</code>
+		    			</pre>	
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>整数转换字符串</td>
+		    		<td>
+		    			<pre><code>
+answer = Integer.toString(number)
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>随机数</td>
+		    		<td>
+		    			<pre><code>
+Random randomGenerator = new Random();
+int randomNumber = randomGenerator.nextInt(3); 
+//会生成0、1、2
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>数组</td>
+		    		<td>
+		    			<pre><code>
+public String[] mAnswers = { "Great!", "Bingo!", "Perfect!", "灰常好！", "真棒！" };
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>if 语句</td>
+		    		<td>
+		    			<pre><code>
+if (randomNumber == 0){
+	answer = "Yes";
+} else if (randomNumber == 1){
+	answer = "No";
+} else {
+	answer = "Sorry, there was an error!";
+}
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
-		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
 		    	</tr>
 		    </tbody>
 
