@@ -29,6 +29,19 @@
 		    </thead>
 		    <tbody>
 		    	<tr>
+		    		<td>快捷键</td>
+		    		<td>
+自动补齐：Alt+/: content assist<br>
+删除一整行：CMD+D <br>
+格式化代码：command+shift+f <br>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td>主程序</td>
 		    		<td>项目初始化，自动生成 MainActivity.java</td>
 		    		<td>项目初始化，自动生成 xxxViewControl.h/.m</td>
@@ -41,13 +54,16 @@ package com.shiyueyangfan.mycrystalball;
 import android.app.Activity;
 		    			</code></pre>
 		    			敲入代码出现多处提醒需要引用新的类时，<br>
-		    			Sourse > Organiza Import
+		    			Source> Organize Import
 		    		</td>
 		    		<td>
 		    			<pre><code>
 
 		    			</code></pre>
 		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>MVC</h3></td>
 		    	</tr>
 		    	<tr>
 		    		<td>Control 中的对象，<br>对View中UI元素的映射</td>
@@ -77,6 +93,24 @@ getAnswerButton.setOnClickListener(new View.OnClickListener() {
 });
 		    				</code>
 		    			</pre>	
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>View中UI元素，<br>如何关联Control的方法？</td>
+		    		<td>
+第一步：在UI元素，比如某个Button的Properties框中，找到On Click，填写上将要触发的方法名称；<br>
+第二步：在Control代码中，编写该方法的代码，比如：
+		    			<pre><code>
+public void openWeibo(View v){
+	//...
+}
+
+		    			</code></pre>
 		    		</td>
 		    		<td>
 		    			<pre><code>
@@ -145,10 +179,15 @@ if (randomNumber == 0){
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td></td>
+		    		<td colspan="3"><h3>具体应用</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>媒体播放器</td>
 		    		<td>
+		    			播放MP3
 		    			<pre><code>
-
+MediaPlayer oneSong = MediaPlayer.create(this, R.raw.shenglaipanghuang);
+oneSong.start();
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -158,10 +197,15 @@ if (randomNumber == 0){
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td></td>
+		    		<td>打开浏览器链接</td>
 		    		<td>
 		    			<pre><code>
-
+public void openWeibo(View v){
+	String url = "http://weibo.com/wangfeng";
+	Intent i = new Intent(Intent.ACTION_VIEW);
+	i.setData(Uri.parse(url));
+	startActivity(i);
+}
 		    			</code></pre>
 		    		</td>
 		    		<td>
