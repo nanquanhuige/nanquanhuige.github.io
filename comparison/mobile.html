@@ -1,0 +1,651 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Documentation extras -->
+<link href="../docs-assets/css/docs.css" rel="stylesheet">
+<title>personal projects</title>
+
+<body>
+<div id="wrapper">
+	<header class="container">
+		<h1>个人技术笔记</h1>
+	</header>
+	<div id="content" class="container">
+		<h2>Android, Objective-C</h2>
+		<!-- 表格开始 -->
+		<div class="table-responsive">
+		  <table class="table table-bordered">
+		    <thead>
+		    	<tr>
+			    	<td></td>
+			    	<td width="41%">Android</td>
+			    	<td width="41%">Objective-C</td>
+		    	</tr>
+		    </thead>
+		    <tbody>
+		    	<tr>
+		    		<td>快捷键</td>
+		    		<td>
+<h3>Eclipse 快捷键</h3>
+自动补齐：Alt+/: content assist<br>
+删除一整行：CMD+D <br>
+格式化代码：command+shift+f <br>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>主程序</td>
+		    		<td>项目初始化，自动生成 MainActivity.java</td>
+		    		<td>项目初始化，自动生成 xxxViewControl.h/.m</td>
+		    	</tr>
+		    	<tr>
+		    		<td>命名空间<br>类引用</td>
+		    		<td>
+		    			<pre><code>
+package com.shiyueyangfan.mycrystalball;
+import android.app.Activity;
+		    			</code></pre>
+		    			敲入代码出现多处提醒需要引用新的类时，<br>
+		    			Source> Organize Import
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>全局设置</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>Orientation</td>
+		    		<td>
+		    			manifest > application > activity
+		    			<pre><code>
+//从portrait到landscape的切换过程中，无需重新启动应用设置！
+//比如，正在播放一首背景音乐，屏幕改为横版后，不会重新播放！
+android:configChanges="orientation|screenSize|uiMode"
+
+//只能是竖版
+android:screenOrientation="portrait"
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>Layout</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>尺寸</td>
+		    		<td>
+		    			先记住 mdpi与hdpi，然后，交叉乘2或除2
+		    			<pre><code>
+ldpi	120dpi 
+mdpi	160dpi
+hdpi	240dpi
+xhdpi	320dpi
+xxhdpi	480dpi
+xxxhdpi	640dpi
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>W,H,Margin,Padding</td>
+		    		<td>
+		    			<pre><code>
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginTop="10dp"
+android:layout_alignParentBottom="true"
+android:layout_toRightOf="@id/button1"
+android:paddingBottom="@dimen/activity_vertical_margin"
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>一些特殊应用</td>
+		    		<td>
+		    			把两个按钮定位在页面的底部，并排 <br>
+		    			上面是一个文本滚动框 <br>
+		    			按顺序代码，首先，先写按钮，然后是文本滚动框 <br>
+		    			然后是设置文本滚动框与按钮的相对位置，以及按钮2与按钮1的相对位置
+		    			<pre><code>
+Button
+    android:id="@+id/button1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_alignParentBottom="true"
+    android:onClick="openWeibo"
+    android:text="@string/weibo"
+
+Button
+    android:id="@+id/button2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@id/button1"
+    android:layout_alignBottom="@id/button1"
+    android:onClick="openBaiduMusic"
+    android:text="@string/baidumusic"
+
+ScrollView
+    android:id="@+id/scrolly"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_below="@id/coverart"
+        android:layout_above="@id/button1"
+    
+    TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lyrics"
+        android:textSize="16sp"
+/ScrollView
+		    			</code></pre>
+		    			
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>样式 Style</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>样式设置与引用</td>
+		    		<td>
+		    			首先，在res > values > styles.xml 进行设置
+		    			<pre><code>
+style name="LyricsText" parent="@android:style/TextAppearance.Large"
+    item name="android:textColor">#404040 /item
+    item name="android:textStyle">bold /item
+    item name="android:textSize">16sp /item
+/style
+		    			</code></pre>
+		    			然后，在layout > activity_main.xml 中引用
+		    			<pre><code>
+TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/lyrics"
+    style="@style/LyricsText" /
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>MVC</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>Control 中的对象，<br>对View中UI元素的映射</td>
+		    		<td>
+		    			<pre>
+		    				<code>
+TextView answerLabel (TextView) findViewById(R.id.textView1)
+Button getAnswerButton = (Button) findViewById(R.id.button1)</code>
+
+		    			</pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>Control 中的对象，<br>对View中UI元素的事件监听</td>
+		    		<td>
+		    			<pre>
+		    				<code>
+getAnswerButton.setOnClickListener(new View.OnClickListener() {
+	public void onClick(View v) {
+		answerLabel.setText(mCrystalBall.getAnAnswer());
+	}
+});
+		    				</code>
+		    			</pre>	
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>View中UI元素，<br>如何关联Control的方法？</td>
+		    		<td>
+第一步：在UI元素，比如某个Button的Properties框中，找到On Click，填写上将要触发的方法名称；<br>
+第二步：在Control代码中，编写该方法的代码，比如：
+		    			<pre><code>
+public void openWeibo(View v){
+	//...
+}
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>内置方法</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>整数转换字符串</td>
+		    		<td>
+		    			<pre><code>
+answer = Integer.toString(number)
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>数据结构</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>数组</td>
+		    		<td>
+		    			<pre><code>
+public String[] mAnswers = { "Great!", "Bingo!", "Perfect!", "灰常好！", "真棒！" };
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>控制</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>if 语句</td>
+		    		<td>
+		    			<pre><code>
+if (randomNumber == 0){
+	answer = "Yes";
+} else if (randomNumber == 1){
+	answer = "No";
+} else {
+	answer = "Sorry, there was an error!";
+}
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>常用</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>随机数</td>
+		    		<td>
+		    			<pre><code>
+Random randomGenerator = new Random();
+int randomNumber = randomGenerator.nextInt(3); 
+//会生成0、1、2
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>具体应用</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td>媒体播放器</td>
+		    		<td>
+		    			播放MP3
+		    			<pre><code>
+MediaPlayer oneSong = MediaPlayer.create(this, R.raw.shenglaipanghuang);
+oneSong.start();
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>打开浏览器链接</td>
+		    		<td>
+		    			<pre><code>
+public void openWeibo(View v){
+	String url = "http://weibo.com/wangfeng";
+	Intent i = new Intent(Intent.ACTION_VIEW);
+	i.setData(Uri.parse(url));
+	startActivity(i);
+}
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>某某领域</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    </tbody>
+
+		  </table>
+		</div>
+		<!-- 表格结束 -->
+	</div>
+	<footer class="container">
+		
+	</footer>
+
+
+</div>
+
+
+<script src="../dist/js/bootstrap.js"></script>
+</body>
+</html>
+
