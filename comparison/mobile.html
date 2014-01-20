@@ -64,6 +64,32 @@ import android.app.Activity;
 		    		</td>
 		    	</tr>
 		    	<tr>
+		    		<td>文件与路径</td>
+		    		<td>
+		    			assets 文件包中，保存任何用户个性的文档 <br>
+		    			pointer.loadUrl("file:///android_asset/index.html"); <br>
+		    			注意， /// 3个斜杠，asset 是单数
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>变量</td>
+		    		<td>
+		    			两者区别： <br>
+		    			field(instance) variable is part of the activity <br>
+		    			local variable，在方法中定义的变量，即使是在onCreate(...){}定义<br>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td colspan="3"><h3>全局设置</h3></td>
 		    	</tr>
 		    	<tr>
@@ -73,10 +99,15 @@ import android.app.Activity;
 		    			<pre><code>
 //从portrait到landscape的切换过程中，无需重新启动应用设置！
 //比如，正在播放一首背景音乐，屏幕改为横版后，不会重新播放！
-android:configChanges="orientation|screenSize|uiMode"
+// to prevent these three different conflict changes from when we started our activity.
+android:configChanges="orientation|screenSize|uiMode"<br>
+android:configChanges="orientation|screenSize|keyboardHidden"
 
 //只能是竖版
 android:screenOrientation="portrait"
+
+//获得链接internet的permission
+uses-permission android:name="android.permission.INTERNET"
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -373,9 +404,15 @@ if (randomNumber == 0){
 		    		<td>随机数</td>
 		    		<td>
 		    			<pre><code>
-Random randomGenerator = new Random();
-int randomNumber = randomGenerator.nextInt(3); 
+Random rand = new Random();
+int n = rand.nextInt(3); 
 //会生成0、1、2
+		    			</code></pre>
+
+		    			0.0=< <1.0之间 <br>
+		    			Call random() API method of Math. This method returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0
+		    			<pre><code>
+Math.random()
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -421,10 +458,29 @@ public void openWeibo(View v){
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td></td>
+		    		<td>内嵌网页</td>
 		    		<td>
 		    			<pre><code>
+// Find that webview1
+WebView myWebView；
+myWebView = (WebView) findViewById(R.id.webView1);
+// 设置，支持缩放，支持javascript
+myWebView.getSettings().setBuiltInZoomControls(true);
+myWebView.getSettings().setJavaScriptEnabled(true);
+// Open asset/index.html
+pointer.loadUrl("file:///android_asset/index.html");
 
+//后退键支持浏览记录
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    // Check if the key event was the Back button and if there's history
+    if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()) {
+        myWebView.goBack();
+        return true;
+    }
+    // If it wasn't the Back key or there's no web page history, bubble up to the default
+    // system behavior (probably exit the activity)
+    return super.onKeyDown(keyCode, event);
+}
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -434,10 +490,23 @@ public void openWeibo(View v){
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td></td>
+		    		<td>Activity & intent</td>
 		    		<td>
+		    			创建Activity时，如果勾选 Launcher Activity <br>
+		    			那么，将在用户手机的屏幕上，生成两个 icon <br>
+		    			在AndroidManifest.xml中可以查看相应的代码：	
 		    			<pre><code>
+intent-filter
+    action android:name="android.intent.action.MAIN"
 
+    category android:name="android.intent.category.LAUNCHER"
+/intent-filter
+		    			</code></pre>
+		    			intent is one way for activity to connect to another activity
+		    			<pre><code>
+Intent intent = new Intent();
+intent.setClass(this, xxxxActivity.class);
+startActivity(intent);
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -447,10 +516,11 @@ public void openWeibo(View v){
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td></td>
+		    		<td>页面缩放</td>
 		    		<td>
+		    			生成一个WebView对象
 		    			<pre><code>
-
+myWebView.getSettings().setBuiltInZoomControls(true);
 		    			</code></pre>
 		    		</td>
 		    		<td>
