@@ -34,7 +34,8 @@
 <h3>Eclipse 快捷键</h3>
 自动补齐：Alt+/: content assist<br>
 删除一整行：CMD+D <br>
-格式化代码：command+shift+f <br>
+<span class="label label-primary">格式化代码</span>：command+shift+f (Source > Format)<br>
+
 		    		</td>
 		    		<td>
 		    			<pre><code>
@@ -55,7 +56,7 @@ package com.shiyueyangfan.mycrystalball;
 import android.app.Activity;
 		    			</code></pre>
 		    			敲入代码出现多处提醒需要引用新的类时，<br>
-		    			Source> Organize Import
+		    			Source > Organize Import
 		    		</td>
 		    		<td>
 		    			<pre><code>
@@ -117,6 +118,19 @@ uses-permission android:name="android.permission.INTERNET"
 		    		</td>
 		    	</tr>
 		    	<tr>
+		    		<td>其他</td>
+		    		<td>
+		    			
+		    			<pre><code></code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+
+		    	<tr>
 		    		<td colspan="3"><h3>Layout</h3></td>
 		    	</tr>
 		    	<tr>
@@ -141,6 +155,8 @@ xxxhdpi	640dpi
 		    	<tr>
 		    		<td>W,H,Margin,Padding</td>
 		    		<td>
+		    			<span class="label label-primary">match_parent</span>：向外撑开，达到父容器的大小 <br>
+		    			<span class="label label-primary">wrap_content</span>：大小，取决于内容，由内容撑起来
 		    			<pre><code>
 android:layout_width="match_parent"
 android:layout_height="match_parent"
@@ -470,7 +486,7 @@ myWebView.getSettings().setJavaScriptEnabled(true);
 // Open asset/index.html
 pointer.loadUrl("file:///android_asset/index.html");
 
-//后退键支持浏览记录
+//<span class="label label-primary">后退键支持浏览记录</span>
 public boolean onKeyDown(int keyCode, KeyEvent event) {
     // Check if the key event was the Back button and if there's history
     if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()) {
@@ -507,6 +523,13 @@ intent-filter
 Intent intent = new Intent();
 intent.setClass(this, xxxxActivity.class);
 startActivity(intent);
+		    			</code></pre>
+
+		    			多个 icon， 用户点击启动后，避免老是停留在第一个 activity的界面，需要在activity中标明：
+		    			<span class="label label-primary">android:taskAffinity</span>
+		    			<pre><code>
+android:taskAffinity="com.shiyue.webcontent.xxxActivity.SettingsTask"
+赋值一个字符串，名称是为了便于识别！
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -673,7 +696,7 @@ myWebView.getSettings().setBuiltInZoomControls(true);
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="3"><h3>某某领域</h3></td>
+		    		<td colspan="3"><h3>其他</h3></td>
 		    	</tr>
 		    	<tr>
 		    		<td></td>
