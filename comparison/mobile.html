@@ -91,12 +91,17 @@ import android.app.Activity;
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td>null</td>
+		    		<td>null与empty</td>
 		    		<td>
 		    			<span class="label label-danger">如果一个字符串变量x是null</span>， <br>
 		    			那么如下情况，都会导致exception <br>
 		    			x.toUpperCase(); x.length(); x.equals("");<br>
-		    			也就是说，所有String对象的方法，调用都会出现异常！
+		    			也就是说，所有String对象的方法，调用都会出现异常！<br>
+
+		    			<hr>
+		    			当x = “”时，Integer.parseInt(x)会抛出异常 
+
+
 		    		</td>
 		    		<td>
 		    			<pre><code>
@@ -438,7 +443,7 @@ public void openWeibo(View v){
 		    			整数转换字符串 <br>
 		    			String answer = Integer.toString(number); <br>
 		    			字符串转换为整数 <br>
-		    			int value = Integer.parseInt(phone); <br> <hr>
+		    			int value = Integer.parseInt("123456"); <br> <hr>
 		    			int position = email.indexOf("@"); <br>
 		    			//<span class="label label-danger">取@前字符串</span> <br>
 		    			String username = email.substring(0, position); <br>
