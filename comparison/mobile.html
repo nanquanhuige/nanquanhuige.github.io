@@ -91,6 +91,20 @@ import android.app.Activity;
 		    		</td>
 		    	</tr>
 		    	<tr>
+		    		<td>null</td>
+		    		<td>
+		    			<span class="label label-danger">如果一个字符串变量x是null</span>， <br>
+		    			那么如下情况，都会导致exception <br>
+		    			x.toUpperCase(); x.length(); x.equals("");<br>
+		    			也就是说，所有String对象的方法，调用都会出现异常！
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
 		    		<td colspan="3"><h3>全局设置</h3></td>
 		    	</tr>
 		    	<tr>
@@ -165,6 +179,62 @@ android:layout_alignParentBottom="true"
 android:layout_toRightOf="@id/button1"
 android:paddingBottom="@dimen/activity_vertical_margin"
 		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>Ratio</td>
+		    		<td>
+		    		<span class="label label-primary">android:layout_weight</span>的用法，<br>
+		    		需要在parent container中设置：android:fillViewport，这将保证容器，比如 ScrollView can expand to occupy the entire viewpoint area.
+		    			
+		    			<pre><code>
+ScrollView 
+    android:fillViewport="true"
+
+    LinearLayout
+        android:orientation="vertical"
+
+        EditText
+            android:ems="10"
+            android:hint="请输入您的姓名"
+            android:inputType="textPersonName" >
+
+            <span class="label label-danger">requestFocus</span> android:layout_width="wrap_content" /
+        /EditText
+
+
+        EditText
+            android:minLines = "3"
+            android:layout_weight="5"/
+
+        ImageButton
+            android:onClick="processForm"
+            android:adjustViewBounds="true"
+            // 在 vertical linear layout 中元素靠右边
+            <span class="label label-danger">android:layout_gravity="right"</span>
+            android:layout_weight="5"
+            /
+    /LinearLayout
+
+/ScrollView
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>其他</td>
+		    		<td>
+		    			
+		    			<pre><code></code></pre>
 		    		</td>
 		    		<td>
 		    			<pre><code>
@@ -363,10 +433,95 @@ public void openWeibo(View v){
 		    		<td colspan="3"><h3>内置方法</h3></td>
 		    	</tr>
 		    	<tr>
-		    		<td>整数转换字符串</td>
+		    		<td>整数与字符串</td>
+		    		<td>
+		    			整数转换字符串 <br>
+		    			String answer = Integer.toString(number); <br>
+		    			字符串转换为整数 <br>
+		    			int value = Integer.parseInt(phone); <br> <hr>
+		    			int position = email.indexOf("@"); <br>
+		    			//<span class="label label-danger">取@前字符串</span> <br>
+		    			String username = email.substring(0, position); <br>
+		    			//<span class="label label-danger">取@后字符串</span> <br>
+		    			String domain = email.substring(position+1, email.length); <br>
+		    			String thankyou = "Thank you " + str + "!"; <br>
+		    			//字符串 + 整数，还是字符串
+		    			x = "World" + 123;
+		    		</td>
 		    		<td>
 		    			<pre><code>
-answer = Integer.toString(number)
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>验证</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			int position = email.indexOf("@"); <br>
+		    			if (position <= 0) {.... return}; <br>
+		    			int len = comments.length();  <br>
+		    			if (len == 0) {.... return}; <br>
+		    			if (name.equals("Fred")) {.... return}; <br>
+		    			if (!email contains("@")) {.... return}; <br>
+		    		</td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>提示</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			Toast.makeText(this.getApplicationContext(), "Invalid email address!", Toast.LENGTH_LONG).show(); <br>
+		    			mEmail.requestFocus();
+		    		</td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>动画</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			效果之一：点击按钮的关联方法processForm，按钮向右漂移一下
+		    			<pre><code>
+public void processForm(View v){
+
+	//v.setVisibility(View.INVISIBLE);
+	
+	Animation anim = AnimationUtils.makeOutAnimation(this, true);
+	v.startAnimation(anim);
+	
+}
+		    			</code></pre>
+		    		</td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>表单</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td><span class="label label-danger">输入框动作捕捉</span></td>
+		    		<td>
+		    			<pre><code>
+//第一种方式：实现TextWatcher接口
+MainActivity extends Activity implements TextWatcher
+//然后，重载TextWatcher类的各种方法
+//然后，绑定要监听的表单元素对象
+mComments.addTextChangedListener(this);
+
+
+//第二种方式：直接在xxxActivity中生成TextWatcher的对象
+TextWatcher watcher = new TextWatcher() {}
+//然后，在该对象初始化设置中，实现各种方法
+//然后，绑定要监听的表单元素对象
+mComments.addTextChangedListener(watcher);
+//记得在该对象的各种方法中，this的context要改变，指向xxxActivity.this，而不是该watcher
+//或者直接在对象初始化之上，设置 final xxxActivity context = this;
+
 		    			</code></pre>
 		    		</td>
 		    		<td>
@@ -411,6 +566,38 @@ if (randomNumber == 0){
 		    			<pre><code>
 
 		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>Debug</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			Log.d("xxxActivity", "Phone number is " + phone); <br>
+		    		</td>
+		    		<td>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="3"><h3>异常处理</h3></td>
+		    	</tr>
+		    	<tr>
+		    		<td></td>
+		    		<td>
+		    			<pre><code>
+int value = -1;
+boolean valueOK = false;
+try{
+	int value = Integer.parseInt(phone); //考虑到用户form表单填写的phone不是纯数字
+	valueOK = true;
+	Log.d("xxxActivity", "Phone number is " + value); 
+}catch(Exception e){
+	Log.d("xxxActivity", "Invalid Phone number - not digits" + phone); 
+}
+		    			</code></pre>
+		    		</td>
+		    		<td>
 		    		</td>
 		    	</tr>
 		    	<tr>
@@ -530,6 +717,69 @@ startActivity(intent);
 		    			<pre><code>
 android:taskAffinity="com.shiyue.webcontent.xxxActivity.SettingsTask"
 赋值一个字符串，名称是为了便于识别！
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>发送文本</td>
+		    		<td>
+		    			<pre><code>
+Intent i = new Intent(Intent.ACTION_SEND);
+i.setType("text/plain");
+i.putExtra(Intent.EXTRA_TEXT, "What a wonderful app!");
+startActivity(i);
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>发送SMS</td>
+		    		<td>
+		    			<pre><code>
+Intent i = new Intent(Intent.ACTION_VIEW);
+i.setData(Uri.parse("sms:" + phone));
+i.putExtra("sms_body", comments);
+startActivity(i);
+		    			</code></pre>
+		    		</td>
+		    		<td>
+		    			<pre><code>
+
+		    			</code></pre>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>发送电子邮件</td>
+		    		<td>
+		    			<pre><code>
+Intent i = new Intent(Intent.ACTION_SENDTO,
+		Uri.fromParts("mailto", "8888@qq.com", null));
+i.putExtra(Intent.EXTRA_SUBJECT, "important news");
+i.putExtra(Intent.EXTRA_TEXT, name + " says " + comments);
+
+Intent yetAnotherIntent = Intent.createChooser(i, "请选择发送电子邮件的应用！");
+startActivity(yetAnotherIntent);
+//或者 
+//startActivity(Intent.createChooser(i, "请选择发送电子邮件的应用！"));
+
+//You can test to see if the user's phone can handle a particular intent by:
+//<span class="label label-danger">检验用户的手机是否响应某个Intent?</span>
+//i.resolveActivity(getPackageManager()) == null 
+//比如，判断电子邮件账户是否设置？
+if (i.resolveActivity(getPackageManager()) == null ){
+	Toast.makeText(this.getApplicationContext(), "请设置你的电子邮件账户！", Toast.LENGTH_LONG).show();
+}else{
+	startActivity(yetAnotherIntent);
+}
 		    			</code></pre>
 		    		</td>
 		    		<td>
