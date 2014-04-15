@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
 
 </head>
 
@@ -14,12 +15,144 @@
 <body>
 
 	<div class="container">
-	  <h1>这里是文字测试</h1>
+	  <h1>个人笔记与收藏</h1>
 	</div>
 
+	<pre><code class=“hljs javascript”>
+	function $initHighlight(block, flags) {
+	  try {
+	    if (block.className.search(/\bno\-highlight\b/) != -1)
+	      return processBlock(block.function, true, 0x0F) + ' class=""';
+	  } catch (e) {
+	    /* handle exception */
+	    var e4x = "...";
+	  }
+	  for (var i = 0 / 2; i < classes.length; i++) { // "0 / 2" should not be parsed as regexp
+	    if (checkCondition(classes[i]) === undefined)
+	      return /\d+[\s/]/g;
+	  }
+	  console.log(Array.every(classes, Boolean));
+	}
+	</code></pre>
+
+	<pre><code class=“hljs ruby”>
+	class A < B; def self.create(object = User) object end end
+	class Zebra; def inspect; "X#{2 + self.object_id}" end end
+
+	module ABC::DEF
+	  include Comparable
+
+	  # @param test
+	  # @return [String] nothing
+	  def foo(test)
+	    Thread.new do |blockvar|
+	      ABC::DEF.reverse(:a_symbol, :'a symbol', :<=>, 'test' + ?\012)
+	      answer = valid?4 && valid?CONST && ?A && ?A.ord
+	    end.join
+	  end
+
+	  def [](index) self[index] end
+	  def ==(other) other == self end
+	end
+
+	anIdentifier = an_identifier
+	Constant = 1
+	render action: :new
+
+	str =~ /^(?:foo)$/
+	str =~ %r{foo|bar|buz$}
+	str =~ %r!foo|bar$!
+	str =~ %r[foo|bar$]
+	str =~ %r(\(foo|bar\)$)
+	</code></pre>
+
+	<pre><code class=“hljs objectivec”>
+	#import <UIKit/UIKit.h>
+	#import "Dependency.h"
+
+	@protocol WorldDataSource
+	@optional
+	- (NSString*)worldName;
+	@required
+	- (BOOL)allowsToLive;
+	@end
+
+	@interface Test : NSObject <HelloDelegate, WorldDataSource> {
+	  NSString *_greeting;
+	}
+
+	@property (nonatomic, readonly) NSString *greeting;
+	- (IBAction) show;
+	@end
+
+	@implementation Test
+
+	@synthesize test=_test;
+
+	+ (id) test {
+	  return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
+	}
+
+	+ (id) testWithGreeting:(NSString*)greeting {
+	  return [[[self alloc] initWithGreeting:greeting] autorelease];
+	}
+
+	- (id) initWithGreeting:(NSString*)greeting {
+	  if ( (self = [super init]) ) {
+	    _greeting = [greeting retain];
+	  }
+	  return self;
+	}
+
+	- (void) dealloc {
+	  [_greeting release];
+	  [super dealloc];
+	}
+
+	@end
+	</code></pre>
+
+	<pre><code class=“hljs java”>
+	/**
+	 * @author John Smith <john.smith@example.com>
+	 * @version 1.0
+	*/
+	package l2f.gameserver.model;
+
+	import java.util.ArrayList;
+
+	public abstract class L2Character extends L2Object {
+	  public static final Short ABNORMAL_EFFECT_BLEEDING = 0x0001; // not sure
+
+	  public void moveTo(int x, int y, int z) {
+	    _ai = null;
+	    _log.warning("Should not be called");
+	    if (1 > 5) {
+	      return;
+	    }
+	  }
+
+	  /** Task of AI notification */
+	  @SuppressWarnings( { "nls", "unqualified-field-access", "boxing" })
+	  public class NotifyAITask implements Runnable {
+	    private final CtrlEvent _evt;
+
+	    public void run() {
+	      try {
+	        getAI().notifyEvent(_evt, _evt.class, null);
+	      } catch (Throwable t) {
+	        t.printStackTrace();
+	      }
+	    }
+	  }
+	}
+	</code></pre>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+	<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
